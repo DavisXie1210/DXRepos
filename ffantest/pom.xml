@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<groupId>com.ffan.autotest</groupId>
+	<artifactId>ffantest</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<packaging>jar</packaging>
+
+	<name>ffantest</name>
+	<url>http://maven.aliyun.com/nexus/content/groups/public/org/</url>
+
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<xmlFileName>testng.xml</xmlFileName>
+	</properties>
+
+	<dependencies>
+		<!--<dependency> <groupId>junit</groupId> <artifactId>junit</artifactId> 
+			<version>3.8.1</version> <scope>test</scope> </dependency> -->
+		<dependency>
+			<groupId>org.apache.maven.plugins</groupId>
+			<artifactId>maven-antrun-plugin</artifactId>
+			<version>1.8</version>
+			<scope>test</scope>
+			<exclusions>
+				<exclusion>
+					<groupId>org.apache.ant</groupId>
+					<artifactId>ant</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+		<!-- <dependency> <groupId>org.apache.ant</groupId> <artifactId>ant</artifactId> 
+			<version>1.8.4</version> <scope>test</scope> </dependency> -->
+		<dependency>
+			<groupId>org.apache.ant</groupId>
+			<artifactId>ant</artifactId>
+			<version>1.9.9</version>
+			<scope>test</scope>
+			<exclusions>
+				<exclusion>
+					<groupId>org.apache.ant</groupId>
+					<artifactId>ant</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.ant</groupId>
+			<artifactId>ant-launcher</artifactId>
+			<version>1.9.9</version>
+			<scope>test</scope>
+			<exclusions>
+				<exclusion>
+					<groupId>org.apache.ant</groupId>
+					<artifactId>ant-launcher</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.ant</groupId>
+			<artifactId>ant-trax</artifactId>
+			<version>1.8.0</version>
+			<scope>test</scope>
+			<exclusions>
+				<exclusion>
+					<groupId>org.apache.ant</groupId>
+					<artifactId>ant</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+		<dependency>
+			<groupId>org.testng</groupId>
+			<artifactId>testng</artifactId>
+			<version>6.1.1</version>
+			<scope>test</scope>
+		</dependency>
+
+		<!-- 依赖reportNg 关联testNg -->
+		<dependency>
+			<groupId>org.uncommons</groupId>
+			<artifactId>reportng</artifactId>
+			<version>1.1.5</version>
+			<scope>test</scope>
+			<exclusions>
+				<exclusion>
+					<groupId>org.testng</groupId>
+					<artifactId>testng</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+
+		<!-- 依赖Guice -->
+		<dependency>
+			<groupId>com.google.inject</groupId>
+			<artifactId>guice</artifactId>
+			<version>4.0</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>velocity</groupId>
+			<artifactId>velocity-dep</artifactId>
+			<version>1.5-beta2</version>
+		</dependency>
+		<dependency>
+			<groupId>log4j</groupId>
+			<artifactId>log4j</artifactId>
+			<version>1.2.17</version>
+		</dependency>
+
+	</dependencies>
+	<build>
+		<plugins>
+			<!-- add jmeter part <plugin> <groupId>com.lazerycode.jmeter</groupId> 
+				<artifactId>jmeter-maven-plugin</artifactId> <version>2.0.3</version> <configuration> 
+				<appendResultsTimestamp>true</appendResultsTimestamp> </configuration> <executions> 
+				<execution> <id>jmeter-tests</id> <phase>test</phase> <goals> <goal>jmeter</goal> 
+				</goals> </execution> </executions> </plugin> -->
+			<!-- <span style="font-family: Arial, Helvetica, sans-serif;"> </span> -->
+
+
+			<!-- jmeter jtl transform to html <plugin> <groupId>org.codehaus.mojo</groupId> 
+				<artifactId>xml-maven-plugin</artifactId> <version>1.0</version> <executions> 
+				<execution> <phase>verify</phase> <goals> <goal>transform</goal> </goals> 
+				</execution> </executions> <configuration> <transformationSets> <transformationSet> 
+				<dir>${project.build.directory}/jmeter/results</dir> <stylesheet>${project.basedir}/src/main/jmeter-results-detail-report_21.xsl</stylesheet> 
+				<outputDir>${project.build.directory}/jmeter/results</outputDir> <fileMappers> 
+				<fileMapper implementation="org.codehaus.plexus.components.io.filemappers.FileExtensionMapper"> 
+				<targetExtension>html</targetExtension> </fileMapper> </fileMappers> </transformationSet> 
+				</transformationSets> </configuration> </plugin> -->
+
+
+			<!-- 资源文件copy <plugin> <groupId>org.apache.maven.plugins</groupId> <artifactId>maven-resources-plugin</artifactId> 
+				<version>2.5</version> <executions> <execution> <id>copy-resources</id> <phase>test</phase> 
+				<goals> <goal>copy-resources</goal> </goals> <configuration> <encoding>UTF-8</encoding> 
+				<outputDirectory>${project.build.directory}/jmeter/res </outputDirectory> 
+				<resources> <resource> <directory>${project.basedir}/src/main/</directory> 
+				<includes> <include>*.png</include> </includes> </resource> </resources> 
+				</configuration> </execution> </executions> </plugin> -->
+
+			<!-- 添加插件 关联testNg.xml -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<configuration>
+					<source>1.5</source>
+					<target>1.5</target>
+				</configuration>
+			</plugin>
+
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-surefire-plugin</artifactId>
+				<version>2.4</version>
+				<configuration>
+					<suiteXmlFiles>
+						<suiteXmlFile>testng.xml</suiteXmlFile>
+					</suiteXmlFiles>
+				</configuration>
+			</plugin>
+
+			<!-- 添加插件,添加ReportNg的监听器，修改最后的TestNg的报告 -->
+			<!--  <plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-surefire-plugin</artifactId>
+				<version>2.5</version>
+				<configuration>
+					<properties>
+						<property>
+							<name>usedefaultlisteners</name>
+							<value>false</value>
+						</property>
+						<property> <name>listener</name> <value>org.uncommons.reportng.HTMLReporter, 
+							org.uncommons.reportng.JUnitXMLReporter</value> </property> 
+					</properties>
+					<workingDirectory>target/</workingDirectory>
+					<forkMode>always</forkMode>
+				</configuration>
+			</plugin>-->
+			<!-- call ANT build.xml 
+			<plugin>
+				<artifactId>maven-antrun-plugin</artifactId>
+				<executions>
+					<execution>
+						<phase>package</phase>
+						<configuration>
+							<tasks>
+								<ant antfile="build.xml" />
+							</tasks>
+						</configuration>
+						<goals>
+							<goal>run</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>-->
+		</plugins>
+	</build>
+</project>

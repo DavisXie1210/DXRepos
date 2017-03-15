@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testResults version="1.2">
+<httpSample t="397" it="0" lt="396" ts="1489479191678" s="false" lb="HTTP请求" rc="200" rm="OK" tn="线程组 1-1" dt="text" by="1917" ng="1" na="1">
+  <assertionResult>
+    <name>响应断言</name>
+    <failure>true</failure>
+    <error>false</error>
+    <failureMessage>Test failed: text expected to contain /T1x6WTB_dv1RCvBVdK/</failureMessage>
+  </assertionResult>
+</httpSample>
+
+<httpSample t="22539" it="0" lt="0" ts="1489479193909" s="false" lb="JD HomePage" rc="Non HTTP response code: java.net.ConnectException" rm="Non HTTP response message: Connection timed out: connect" tn="线程组 1-1" dt="text" by="2565" ng="1" na="1">
+  <assertionResult>
+    <name>响应断言</name>
+    <failure>true</failure>
+    <error>false</error>
+    <failureMessage>Test failed: text expected to contain /你好，请登录/</failureMessage>
+  </assertionResult>
+</httpSample>
+
+<httpSample t="1348" it="0" lt="1347" ts="1489479218809" s="true" lb="P后台登录" rc="200" rm="OK" tn="线程组 1-1" dt="text" by="724" ng="1" na="1">
+  <assertionResult>
+    <name>响应断言</name>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+</httpSample>
+<httpSample t="322" it="0" lt="322" ts="1489479220177" s="false" lb="笑脸红包P后台设置" rc="200" rm="OK" tn="线程组 1-1" dt="text" by="548" ng="1" na="1">
+  <assertionResult>
+    <name>响应断言</name>
+    <failure>true</failure>
+    <error>false</error>
+    <failureMessage>Test failed: text expected to contain /{&quot;status&quot;:200,&quot;msg&quot;:&quot;\u4fdd\u5b58\u6210\u529f&quot;}/</failureMessage>
+  </assertionResult>
+</httpSample>
+<httpSample t="260" it="0" lt="87" ts="1489479220501" s="true" lb="用户注销" rc="200" rm="OK" tn="线程组 1-1" dt="text" by="13618" ng="1" na="1">
+  <httpSample t="87" it="0" lt="87" ts="1489479220501" s="true" lb="http://admin.sit.ffan.com/login/logout" rc="302" rm="Found" tn="线程组 1-1" dt="text" by="569" ng="1" na="1"/>
+  <httpSample t="170" it="0" lt="98" ts="1489479220591" s="true" lb="http://admin.sit.ffan.com/login/index" rc="200" rm="OK" tn="线程组 1-1" dt="text" by="13049" ng="1" na="1"/>
+</httpSample>
+
+</testResults>
